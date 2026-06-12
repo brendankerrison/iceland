@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denise's Iceland — 2 – 13 August 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Spline+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1b2430; --ink-soft:#4a5462; --paper:#f2f3f0; --card:#ffffff;
+    --accent:#0f7a8a;       /* glacial teal */
+    --lava:#b3372b;         /* volcanic */
+    --bus:#c8a200;
+    --boat:#1273a8;
+    --air:#12355b;
+    --eclipse:#3b2a6d;      /* totality violet */
+    --mud-deep:#8a7a5e; --alp:#2f6e4f; --home:#5b6470;
+    --line-x:30px; --rule:#d8dad4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;} html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:'Spline Sans',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px 64px;}
+  header{padding:48px 0 30px;border-bottom:3px solid var(--ink);}
+  .eyebrow{font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);}
+  .eyebrow .dot{color:var(--accent);}
+  h1{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 115;font-weight:850;font-size:clamp(34px,7vw,54px);line-height:1.02;letter-spacing:-.015em;margin:14px 0 10px;text-wrap:balance;}
+  h1 em{font-style:normal;color:var(--accent);}
+  .standfirst{color:var(--ink-soft);max-width:56ch;}
+  .basecamp{margin-top:16px;font-family:'Spline Sans Mono',monospace;font-size:12.5px;color:var(--ink-soft);}
+  .basecamp b{color:var(--ink);font-weight:600;}
+  .dayband{margin-top:48px;background:var(--ink);color:#fff;border-radius:10px;padding:16px 20px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .dayband h2{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 112;font-weight:850;font-size:22px;letter-spacing:.01em;}
+  .dayband.eclipse{background:var(--eclipse);}
+  .dayband .sub{font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#c8cdd4;}
+  .anchors{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--rule);margin-top:18px;}
+  .anchor{padding:14px 12px 14px 0;border-right:1px solid var(--rule);}
+  .anchor:last-child{border-right:none;}
+  .anchor .t{font-family:'Spline Sans Mono',monospace;font-weight:600;font-size:19px;letter-spacing:-.02em;}
+  .anchor .l{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px;}
+  .anchors-note{font-size:12.5px;color:var(--ink-soft);padding:10px 0 0;font-family:'Spline Sans Mono',monospace;}
+  .route{position:relative;margin-top:36px;}
+  .stop{position:relative;padding-left:calc(var(--line-x) + 34px);padding-bottom:8px;}
+  .leg{position:relative;padding-left:calc(var(--line-x) + 34px);padding-top:14px;padding-bottom:14px;min-height:60px;display:flex;align-items:center;}
+  .leg::before{content:'';position:absolute;left:var(--line-x);top:-6px;bottom:-6px;width:0;border-left:6px solid var(--ink);transform:translateX(-3px);}
+  .leg.walk::before{border-left-style:dashed;border-left-color:var(--mud-deep);}
+  .leg.bus::before{border-left-color:var(--bus);}
+  .leg.boat::before{border-left-color:var(--boat);}
+  .leg.air::before{border-left-color:var(--air);}
+  .leg .how{font-family:'Spline Sans Mono',monospace;font-size:12.5px;line-height:1.55;color:var(--ink-soft);background:var(--paper);padding:2px 0;}
+  .leg .how b{color:var(--ink);font-weight:600;}
+  .leg .badge{display:inline-block;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:10.5px;padding:2px 7px;border-radius:3px;margin-right:8px;color:#fff;transform:translateY(-1px);}
+  .leg.walk .badge{background:var(--mud-deep);}
+  .leg.bus .badge{background:var(--bus);color:var(--ink);}
+  .leg.boat .badge{background:var(--boat);}
+  .leg.air .badge{background:var(--air);}
+  .stop::before{content:'';position:absolute;left:var(--line-x);top:6px;width:22px;height:22px;border-radius:50%;background:#fff;border:5px solid var(--stopcolor,var(--ink));transform:translateX(-11px);z-index:2;}
+  .stop.homepoint::before{border-color:var(--home);background:var(--home);}
+  .stop.start{--stopcolor:var(--mud-deep);}
+  .stop.teal{--stopcolor:var(--accent);}
+  .stop.lava{--stopcolor:var(--lava);}
+  .stop.bluestop{--stopcolor:var(--boat);}
+  .stop.violet{--stopcolor:var(--eclipse);}
+  .stop.end{--stopcolor:var(--alp);}
+  .stop.end::before{width:26px;height:26px;transform:translateX(-13px);top:4px;}
+  .stop .time-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+  .stop .time{font-family:'Spline Sans Mono',monospace;font-weight:600;font-size:15px;letter-spacing:.02em;}
+  .chip{font-family:'Spline Sans Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:2.5px 8px;border-radius:999px;}
+  .chip.fixed{background:var(--ink);color:#fff;}
+  .chip.flex{border:1.5px solid var(--ink-soft);color:var(--ink-soft);}
+  .chip.warn{background:var(--lava);color:#fff;}
+  .stop h3{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 108;font-weight:800;font-size:22px;line-height:1.1;letter-spacing:-.01em;margin-bottom:2px;}
+  .stop .addr{font-size:13px;color:var(--ink-soft);font-family:'Spline Sans Mono',monospace;margin-bottom:10px;}
+  .stop .card{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 18px;box-shadow:0 1px 2px rgba(27,36,48,.05);}
+  .stop .card p{margin-bottom:10px;}
+  .stop .card p:last-child{margin-bottom:0;}
+  .stop.homepoint .card{background:transparent;border-style:dashed;box-shadow:none;}
+  .kit{font-size:13.5px;color:var(--ink-soft);border-top:1px dashed var(--rule);padding-top:10px;margin-top:12px;}
+  .kit b{color:var(--ink);font-weight:600;}
+  section.notes{margin-top:56px;}
+  section.notes h2{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 115;font-weight:850;font-size:20px;letter-spacing:.01em;text-transform:uppercase;border-top:3px solid var(--ink);padding-top:14px;margin-bottom:14px;}
+  .check{list-style:none;}
+  .check li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--rule);}
+  .check li::before{content:'';position:absolute;left:2px;top:14px;width:14px;height:14px;border:2px solid var(--ink);border-radius:3px;}
+  .check li b{font-weight:600;}
+  .check .day-tag{font-family:'Spline Sans Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.1em;color:var(--ink-soft);margin-right:6px;}
+  .fine{margin-top:18px;font-size:13.5px;color:var(--ink-soft);}
+  .fine p{margin-bottom:8px;}
+  footer{margin-top:48px;padding-top:14px;border-top:1px solid var(--rule);font-family:'Spline Sans Mono',monospace;font-size:12px;color:var(--ink-soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px;}
+  @media (max-width:560px){.anchors{grid-template-columns:repeat(2,1fr);}.anchor:nth-child(2){border-right:none;}.anchor{border-bottom:1px solid var(--rule);}.anchor:nth-child(3),.anchor:nth-child(4){border-bottom:none;}:root{--line-x:14px;}}
+  @media print{body{background:#fff;}.stop .card{box-shadow:none;}header{padding-top:12px;}.dayband{break-before:page;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">2 – 13 August 2026 <span class="dot">●</span> Iceland <span class="dot">●</span> solo</p>
+    <h1>Glaciers, Volcanoes &amp; <em>Seven Minutes of Night</em></h1>
+    <p class="standfirst">Twelve days built around one cosmic appointment: a total solar eclipse on 12 August — with Björk DJing before totality. Around it: a glacier hike to Jökulsárlón, the Golden Circle and Snæfellsnes with Intrepid, and two days hiking volcanoes on the Westman Islands.</p>
+    <p class="basecamp">BEDS — Dalur HI (2nd) · tour hotel (3rd) · Loft HI (4th–5th) · Aurora GH (6th, 9th) · Intrepid hotels (7th–8th) · Westman glamping (10th) · Eco Campsite tents (11th–12th)</p>
+  </header>
+
+  <div class="dayband"><h2>Day 1 — Arrival</h2><span class="sub">Sunday 2 August</span></div>
+  <div class="route">
+    <article class="stop start">
+      <div class="time-row"><span class="time">16:00 — land Keflavík</span><span class="chip fixed">FI 569 · Conf B2AE6P</span></div>
+      <h3>Keflavík → Reykjavík</h3>
+      <div class="card"><p>Flybus or Airport Direct into town (~50 min). Check in at <b>Dalur HI Eco Hostel</b>, Sundlaugavegur 34 (conf 6266279749, female dorm) — directly next to Laugardalslaug, the city's biggest pool.</p>
+      <div class="kit"><b>Tonight:</b> grocery run at <b>Bónus</b> for two days of food, then a hot-pot soak at the pool next door.</div></div>
+    </article>
+  </div>
+
+  <div class="dayband"><h2>Days 2–3 — South Coast &amp; Jökulsárlón</h2><span class="sub">Monday 3 – Tuesday 4 August</span></div>
+  <div class="route">
+    <article class="stop teal">
+      <div class="time-row"><span class="time">Mon 08:30 pickup → Tue ~21:00 return</span><span class="chip fixed">Nice Travel · NIC-T117890479</span></div>
+      <h3>2-Day South Coast Tour, with glacier hike</h3>
+      <div class="card"><p>Waterfalls (Seljalandsfoss, Skógafoss), a roped-up <b>glacier hike</b>, the <b>Jökulsárlón glacier lagoon</b> full of drifting icebergs and <b>Diamond Beach</b> where they wash up on black sand. Overnight in a tour hotel on the coast.</p>
+      <div class="kit"><b>⚠️ 100% cancellation fee</b> within 1 day — and pack proper boots; crampons are fitted to them.</div></div>
+    </article>
+    <article class="stop bluestop">
+      <div class="time-row"><span class="time">Tue night</span><span class="chip fixed">Conf 82824105</span></div>
+      <h3>Loft HI Eco Hostel &amp; Bar</h3>
+      <p class="addr">Bankastræti 7 — self check-in from 15:00, rooftop terrace</p>
+      <div class="card"><p>Two nights right on the main street, with the best rooftop view of central Reykjavík. Happy hour 3–7pm daily.</p></div>
+    </article>
+  </div>
+
+  <div class="dayband"><h2>Day 4 — Reykjavík, Free</h2><span class="sub">Wednesday 5 August</span></div>
+  <div class="route">
+    <article class="stop teal">
+      <div class="time-row"><span class="time">all day</span><span class="chip flex">Unscripted</span></div>
+      <h3>The slow Reykjavík list</h3>
+      <div class="card"><p><b>Hallgrímskirkja</b> tower, <b>Harpa</b>'s honeycomb glass, the <b>bookstore bar</b>, an indie film at <b>Bíó Paradís</b>, a pool-and-hot-pot session. Intrepid starts tomorrow at 18:00.</p></div>
+    </article>
+  </div>
+
+  <div class="dayband"><h2>Days 5–8 — Intrepid: Golden Circle &amp; Snæfellsnes</h2><span class="sub">Thursday 6 – Sunday 9 August</span></div>
+  <div class="route">
+    <article class="stop teal">
+      <div class="time-row"><span class="time">Thu 18:00 — tour starts</span><span class="chip fixed">Conf 5848469 · $3,225.75</span></div>
+      <h3>Explore Iceland — 4 days with Intrepid</h3>
+      <p class="addr">Nights: Aurora Guesthouse (Thu), tour hotels Hvolsvöllur (Fri) &amp; Snæfellsnes (Sat), Aurora GH (Sun)</p>
+      <div class="card"><p>Check out of Loft by 11, free afternoon, then the 6pm group meeting at <b>Aurora Guesthouse</b> (Freyjugata 24). Days follow Intrepid's plan: Golden Circle and the south (Fri), then the <b>Snæfellsnes peninsula</b> — Kirkjufell, Arnarstapi cliffs, black beaches (Sat) — back to Reykjavík Sunday.</p></div>
+    </article>
+  </div>
+
+  <div class="dayband"><h2>Days 9–10 — Westman Islands</h2><span class="sub">Monday 10 – Tuesday 11 August</span></div>
+  <div class="anchors">
+    <div class="anchor"><div class="t">07:15</div><div class="l">Alarm</div></div>
+    <div class="anchor"><div class="t">09:20</div><div class="l">Bus 51, Mjódd</div></div>
+    <div class="anchor"><div class="t">12:00</div><div class="l">Ferry</div></div>
+    <div class="anchor"><div class="t">pm</div><div class="l">Volcanoes</div></div>
+  </div>
+  <p class="anchors-note">Don't pre-buy the buses — pay by phone/card on board.</p>
+  <div class="route">
+    <div class="leg bus"><p class="how"><span class="badge">Bus 51</span><b>Mjódd E 09:20 → Selfoss N1 10:14</b>, then <span class="badge" style="background:var(--bus);color:var(--ink);">Bus 53</span> <b>Selfoss 10:20 → Landeyjahöfn 11:28</b>.</p></div>
+    <div class="leg boat"><p class="how"><span class="badge">Herjólfur</span><b>12:00 → 12:40</b> ferry to Heimaey.</p></div>
+    <article class="stop lava">
+      <div class="time-row"><span class="time">Mon pm + Tue am</span><span class="chip fixed">Conf 6151037419 · PIN 5973 · €122</span></div>
+      <h3>Heimaey — three summits &amp; a triangle house</h3>
+      <p class="addr">Glamping &amp; Camping, Herjólfsdalur — Triangle House, check-in from 13:00 · tel +354 897 9010</p>
+      <div class="card"><p>The bucket-list hikes: <b>Eldfell</b>, the 1973 volcano, its lava still warm-coloured and strange; <b>Helgafell</b>, the steep old cone; and <b>Heimaklettur</b>, the dramatic harbour cliff with its ladders. The lava field that nearly closed the harbour is the town's edge.</p>
+      <div class="kit"><b>Tuesday return:</b> at the terminal by 10:30 → Herjólfur 11:00 → bus 53 12:00 → bus 52 13:10 → Mjódd 14:02 → <b>Reykjavík Eco Campsite</b>, Tents Area B (conf 80750416 — keycode arrives the day before; Dalur café next door, happy hour 5–7).</div></div>
+    </article>
+  </div>
+
+  <div class="dayband eclipse"><h2>Day 11 — TOTAL SOLAR ECLIPSE 🌑</h2><span class="sub">Wednesday 12 August · totality 17:43 – 17:50</span></div>
+  <div class="route">
+    <article class="stop violet">
+      <div class="time-row"><span class="time">15:00 rave → 17:43 totality</span><span class="chip fixed">Once in a lifetime</span></div>
+      <h3>Echolalia — Björk, Arca &amp; the dark</h3>
+      <p class="addr">Víðistaðatún, Hafnarfjörður · partial begins ~16:42 · TOTALITY 17:43–17:50 · 7 minutes</p>
+      <div class="card"><p>The day the whole trip orbits. From 3pm: <b>Echolalia</b> — Björk (DJ set), Arca (DJ set), Ronja, Sideproject — building to the moment the sun goes out over Iceland for <b>seven minutes</b>, one of the longest totalities of the century. Quiet morning first (National Gallery, Laufásvegur 12, is the gentle option).</p>
+      <div class="kit"><b>Kit:</b> eclipse glasses (no improvising), layers — the temperature drops fast in totality — and a charged phone for the transport squeeze afterwards. Sort transport to Víðistaðatún in advance; everyone in Iceland is moving that afternoon.</div></div>
+    </article>
+  </div>
+
+  <div class="dayband"><h2>Day 12 — Out, via the Pool</h2><span class="sub">Thursday 13 August</span></div>
+  <div class="route">
+    <article class="stop homepoint">
+      <div class="time-row"><span class="time">am swim · out by 11:00</span></div>
+      <h3>Pack down</h3>
+      <div class="card"><p>Morning swim, strike the tent by 11, bus to <b>Iceland Cover to return the camping gear</b> (lunch nearby), then the Flybus to Keflavík.</p></div>
+    </article>
+    <div class="leg air"><p class="how"><span class="badge">FI/AY 994</span><b>KEF 17:15 → HEL 23:40</b> · 3h25 · Conf 9X8DHA.</p></div>
+    <article class="stop end">
+      <div class="time-row"><span class="time">23:40 — Helsinki</span><span class="chip fixed">Eurohostel · Conf 004878</span></div>
+      <h3>Eurohostel, Helsinki</h3>
+      <p class="addr">Linnankatu 9 · budget female dorm · €32.30</p>
+      <div class="card"><p>Midnight arrival — <b>confirm late check-in with the hostel</b>. Tomorrow: the flight to Paris and the Eurostar to London (that page is live).</p></div>
+    </article>
+  </div>
+
+  <section class="notes">
+    <h2>Before you go</h2>
+    <ul class="check">
+      <li><span class="day-tag">NOW</span><b>Eclipse glasses</b> — buy proper ISO-certified ones before August; they sell out in Iceland.</li>
+      <li><span class="day-tag">NOW</span><b>Echolalia tickets / entry details</b> — confirm how the Víðistaðatún event works and plan transport to Hafnarfjörður for 12 Aug.</li>
+      <li><span class="day-tag">NOW</span><b>Camping gear hire</b> — confirm the Iceland Cover pickup (2 Aug or 10 Aug?) and the 13 Aug return time.</li>
+      <li><span class="day-tag">AUG 3</span><b>South Coast tour: 100% cancel fee inside 24h</b> — and boots that take crampons.</li>
+      <li><span class="day-tag">AUG 10</span><b>Westman buses: don't pre-buy</b> — pay on board by card/phone. Ferry: be at Landeyjahöfn by 11:45.</li>
+      <li><span class="day-tag">AUG 11</span><b>Campsite keycode</b> arrives by message the day before — check phone before leaving Heimaey.</li>
+      <li><span class="day-tag">AUG 13</span><b>Eurohostel late check-in</b> — confirm for a ~00:30 arrival.</li>
+      <li><span class="day-tag">ALL</span><b>Eurolink eSIM top-up covers Iceland</b> (bought ~31 Jul in St Gallen) · pools need a pre-shower, bring a towel.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>2 – 13 AUG 2026 · ICELAND</span>
+    <span>Jökulsárlón · Kirkjufell · Eldfell · Björk · Totality</span>
+  </footer>
+
+</div>
+</body>
+</html>
